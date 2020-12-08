@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+    max-width: 100%;
+}
+.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+    width: 100%;
+    }
+
+#team{
+	color: #282828;
+	text-align: center;
+	font-family: open-sans, sans-serif;
+	font-weight: 400;
+}
+
+#team img{
+    margin-top: -50px;
+}
+
+#team i{
+    color: #555
+}
+
+#team .card{
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+}
+
+/* #team #e1:hover{
+    background: #262626;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 5px 5px 5px #9e9e9e;
+} */
+
+#e1, #e2, #e3 {
+    height: 100%;
+}
+
+.card{
+	border: none;
+}
+#text-card{border: none;
+}
+
+#team .card:hover h3,#team .card:hover i{
+    color: #ffffff;
+}
+
+.expand-collapse {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .expand-collapse #drop {
+    background-color: #fff;
+    padding: 20px;
+    margin: 0;
+  }
+  .expand-collapse div {
+    padding: 0;
+    margin: -2px 0 0 0;
+  }
+  .expand-collapse h3 {
+    background-color: #f0fc79;
+    cursor:  pointer;
+    padding: 20px;
+    margin: 0 0 2px;
+  }
+  
+.smimg{
+    background-size: inherit;
+    width: 90%;
+    height: 90%;
+    padding: 1em;
+    margin-top: 2em;
+}
+
+
+.overlay-container {
+    /* display: flex;
+    position: fixed; */
+    width: 100%;
+    height: 100%;
+    /* align-items: center;
+    background: #0007; */
+}
+
+#left-slider{
+    position: fixed;
+    z-index: 100;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    background: #0007;
+}
+#right-slider{
+    position: fixed;
+    z-index: 100;
+    width: 52%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    background: #0007;
+}
+
+#left-slider {
+    left: 0;
+}
+
+#right-slider {
+    right: 0;        
+}
+
+#left-opening-image,
+#right-opening-image {
+    width: 100%;
+}
+
+#top{
+    margin-top: 40rem;
+}
+
+@media screen and (max-width: 840px) {
+    #artportfolio{
+        margin-top: 5rem;
+        padding: 2rem;
+    }
+    #professionalportfolio{
+        padding: 2rem;
+    }
+    #top{
+        margin-top: 150vh;
+    }
+}

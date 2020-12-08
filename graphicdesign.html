@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Dawn M. Barker</title>
+      <link rel="stylesheet" href="css/graphicdesign.css">      
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/owl.carousel.min.css">
+      <script type="text/javascript" src="scripts/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
+      <script type="text/javascript" src="scripts/carousel.js"></script>
+   </head>
+   <body>
+      <script>
+         $(document).ready(function() {
+         $('.expand-collapse h3').each(function() {
+             var tis = $(this), state = false, answer = tis.next('div').slideUp();
+             tis.click(function() {
+                 state = !state;
+                 answer.slideToggle(state);
+                 tis.toggleClass('active',state);
+             });
+         });
+         });
+      </script>
+      <script>
+         $('#myCarousel').carousel({
+  interval: false
+});
+$('#carousel-thumbs').carousel({
+  interval: false
+});
+
+// handles the carousel thumbnails
+// https://stackoverflow.com/questions/25752187/bootstrap-carousel-with-thumbnails-multiple-carousel
+$('[id^=carousel-selector-]').click(function() {
+  var id_selector = $(this).attr('id');
+  var id = parseInt( id_selector.substr(id_selector.lastIndexOf('-') + 1) );
+  $('#myCarousel').carousel(id);
+});
+// Only display 3 items in nav on mobile.
+if ($(window).width() < 575) {
+  $('#carousel-thumbs .row div:nth-child(4)').each(function() {
+    var rowBoundary = $(this);
+    $('<div class="row mx-0">').insertAfter(rowBoundary.parent()).append(rowBoundary.nextAll().addBack());
+  });
+  $('#carousel-thumbs .carousel-item .row:nth-child(even)').each(function() {
+    var boundary = $(this);
+    $('<div class="carousel-item">').insertAfter(boundary.parent()).append(boundary.nextAll().addBack());
+  });
+}
+// Hide slide arrows if too few items.
+if ($('#carousel-thumbs .carousel-item').length < 2) {
+  $('#carousel-thumbs [class^=carousel-control-]').remove();
+  $('.machine-carousel-container #carousel-thumbs').css('padding','0 5px');
+}
+// when the carousel slides, auto update
+$('#myCarousel').on('slide.bs.carousel', function(e) {
+  var id = parseInt( $(e.relatedTarget).attr('data-slide-number') );
+  $('[id^=carousel-selector-]').removeClass('selected');
+  $('[id=carousel-selector-'+id+']').addClass('selected');
+});
+// when user swipes, go next or previous
+/*
+$('#myCarousel').swipe({
+  fallbackToMouseEvents: true,
+  swipeLeft: function(e) {
+    $('#myCarousel').carousel('next');
+  },
+  swipeRight: function(e) {
+    $('#myCarousel').carousel('prev');
+  },
+  allowPageScroll: 'vertical',
+  preventDefaultEvents: false,
+  threshold: 75
+});
+*/
+/*
+$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+  event.preventDefault();
+  $(this).ekkoLightbox();
+});
+*/
+
+$('#myCarousel .carousel-item img').on('click', function(e) {
+  var src = $(e.target).attr('data-remote');
+  if (src) $(this).ekkoLightbox();
+});
+      </script>
+      <link rel="stylesheet"  href="css/main.css">
+      <nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+         <div class="container">
+         <a class="navbar-brand" href="/">Dawn M. Barker</a>
+         <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+         <span><i class="fa fa-bars"></i></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbar">
+         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+               <a class="nav-link" href="index.html" data-target="#about">
+               <span>Home</span>
+               </a>
+            </li>
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="professional.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Professional
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="branding.html">Branding</a>
+                  <a class="dropdown-item" href="graphicdesign.html">Graphic Design</a>
+                  <a class="dropdown-item" href="animation.html">Animation</a>
+                  <a class="dropdown-item" href="writing.html">Writing</a>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="personal.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Personal
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="photography.html">Photography</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="about.html" data-target="/tutorial/">
+            <span>About</span>
+            </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="contact.html" data-target="#contact">
+            <span>Contact</span>
+            </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="interactivedigitalportfolio.pdf">
+            <span>Resume</span>
+            </a>
+            </li>
+         </ul>
+         </div>
+         </div>
+      </nav>
+      <h4 style="text-align: center; margin-top: 5em; color: #369ee7;">Graphic Design</h4>
+<section style="margin-top: 3rem;">
+      <div class="owl-slider">
+         <div id="carousel" class="owl-carousel">
+            <div class="item">
+               <img class="owl-lazy" data-src="images/image-000.jpg" alt="">
+               <p style="text-align: center;">School art project- "Despair"</p>
+            </div>
+            <div class="item">
+               <img class="owl-lazy" data-src="images/image-001.jpg" alt="">
+               <p style="text-align: center;">Web banner ad for Conference on Business</p>
+            </div>
+            <div class="item">
+               <img class="owl-lazy" data-src="images/image-002.jpg" alt="">
+               <p style="text-align: center;">Web banner ad for Make A Connection Reception</p>
+            </div>
+            <div class="item">
+               <img class="owl-lazy" data-src="images/image-003.jpg" alt="">
+               <p style="text-align: center;">Page 1 for Employment Code Marketing Collateral</p>
+            </div>
+              <div class="item">
+               <img class="owl-lazy" data-src="images/image-004.jpg" alt="">
+               <p style="text-align: center;">Page 2 for Employment Code Marketing Collateral</p>
+            </div>
+            <div class="item">
+               <img class="owl-lazy" data-src="images/image-005.jpg" alt="">
+               <p style="text-align: center;">Page 1 What's the Chamber Doing (Marketing)</p>
+            </div>
+            <div class="item">
+               <img class="owl-lazy" data-src="images/image-006.jpg" alt="">
+               <p style="text-align: center;">Page 2 What's the Chamber Doing (Marketing)</p>
+            </div>
+            <div class="item">
+               <img class="owl-lazy" data-src="images/image-007.jpg" alt="">
+               <p style="text-align: center;">Web banner ad for "Pearl" Anniversary ABEX</p>
+            </div>
+              
+         </div>
+         </div>
+      </section>
+
+      <footer class="py-5" style="margin-top: 7em; background-color: black;">
+         <div class="text-center " style="background-color: black;">
+            <a href="https://componentity.com" target="_blank">
+            </a>
+            <h6 class="text-secondary">Food for Thought</h6>
+            <p class="text-secondary col-md-9 mx-auto">"The art of communication is the language of leadership."
+               - James C. Hume
+            </p>
+            <p class="text-secondary col-md-9 mx-auto">
+               "To design is to communicate clearly by whatever means you can control or master."
+               - Milton Glaser
+            </p>
+            <hr class="my-5">
+            <div class="mb-3">
+               <div class="socialbtns">
+                  <ul>
+                     <li><a href="https://www.facebook.com/rithik.sachdev"><i id="face"
+                        style="font-size: xx-large;" class="fa fa-facebook"></i></a>
+                     </li>
+                     <li><a href="https://twitter.com/SKPrairieGrrl"><i id="face"
+                        style="font-size: xx-large;" class="fa fa-lg fa-twitter"></i></a></li>
+                     <li><a href="rithiksachdev3@gmail.com"><i id="face" style="font-size: xx-large;"
+                        class="fa fa-lg fa-google-plus"></i></a></li>
+                     <li><a href="https://www.linkedin.com/in/dawn-m-barker-capm-953495128/"><i id="face"
+                        style="font-size: xx-large;" class="fa fa-lg fa-linkedin"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+            <p class="text-secondary">Copyright 2020. All rights reserved!</p>
+         </div>
+      </footer>
+      
+   </body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="css/home.css">
+      <link rel="stylesheet"  href="css/main.css">
+      <title>Document</title>
+     
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <script type="text/javascript" src="scripts/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <body>
+      <link rel="stylesheet"  href="css/branding.css">
+      <link rel="stylesheet"  href="css/main.css">
+      <script>
+         $('#myCarousel').carousel({
+         interval: false
+         });
+         $('#carousel-thumbs').carousel({
+         interval: false
+         });
+         
+         // handles the carousel thumbnails
+         // https://stackoverflow.com/questions/25752187/bootstrap-carousel-with-thumbnails-multiple-carousel
+         $('[id^=carousel-selector-]').click(function() {
+         var id_selector = $(this).attr('id');
+         var id = parseInt( id_selector.substr(id_selector.lastIndexOf('-') + 1) );
+         $('#myCarousel').carousel(id);
+         });
+         // Only display 3 items in nav on mobile.
+         if ($(window).width() < 575) {
+         $('#carousel-thumbs .row div:nth-child(4)').each(function() {
+         var rowBoundary = $(this);
+         $('<div class="row mx-0">').insertAfter(rowBoundary.parent()).append(rowBoundary.nextAll().addBack());
+         });
+         $('#carousel-thumbs .carousel-item .row:nth-child(even)').each(function() {
+         var boundary = $(this);
+         $('<div class="carousel-item">').insertAfter(boundary.parent()).append(boundary.nextAll().addBack());
+         });
+         }
+         // Hide slide arrows if too few items.
+         if ($('#carousel-thumbs .carousel-item').length < 2) {
+         $('#carousel-thumbs [class^=carousel-control-]').remove();
+         $('.machine-carousel-container #carousel-thumbs').css('padding','0 5px');
+         }
+         // when the carousel slides, auto update
+         $('#myCarousel').on('slide.bs.carousel', function(e) {
+         var id = parseInt( $(e.relatedTarget).attr('data-slide-number') );
+         $('[id^=carousel-selector-]').removeClass('selected');
+         $('[id=carousel-selector-'+id+']').addClass('selected');
+         });
+         // when user swipes, go next or previous
+         /*
+         $('#myCarousel').swipe({
+         fallbackToMouseEvents: true,
+         swipeLeft: function(e) {
+         $('#myCarousel').carousel('next');
+         },
+         swipeRight: function(e) {
+         $('#myCarousel').carousel('prev');
+         },
+         allowPageScroll: 'vertical',
+         preventDefaultEvents: false,
+         threshold: 75
+         });
+         */
+         /*
+         $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+         event.preventDefault();
+         $(this).ekkoLightbox();
+         });
+         */
+         
+         $('#myCarousel .carousel-item img').on('click', function(e) {
+         var src = $(e.target).attr('data-remote');
+         if (src) $(this).ekkoLightbox();
+         });
+      </script>
+      <nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+         <div class="container">
+         <a class="navbar-brand" href="/">Dawn M. Barker</a>
+         <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+         <span><i class="fa fa-bars"></i></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbar">
+         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+               <a class="nav-link" href="index.html" data-target="#about">
+               <span>Home</span>
+               </a>
+            </li>
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="professional.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Professional
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="branding.html">Branding</a>
+                  <a class="dropdown-item" href="graphicdesign.html">Graphic Design</a>
+                  <a class="dropdown-item" href="animation.html">Animation</a>
+                  <a class="dropdown-item" href="writing.html">Writing</a>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="personal.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Personal
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="photography.html">Photography</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="about.html" data-target="/tutorial/">
+            <span>About</span>
+            </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="contact.html" data-target="#contact">
+            <span>Contact</span>
+            </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="interactivedigitalportfolio.pdf" data-target="interactivedigitalportfolio.pdf">
+            <span>Resume</span>
+            </a>
+            </li>
+         </ul>
+         </div>
+         </div>
+      </nav>
+      <h4 style="text-align: center; margin-top: 5em; color: #369ee7;">Branding</h4>
+      <div class="row pl-4" style="width: 100vw;">
+      <div class="col-md-7">
+         <div class="container mt-5">
+            <div class="carousel-container position-relative row">
+               <!-- Sorry! Lightbox doesn't work - yet. -->
+               <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                     <div class="carousel-item active" data-slide-number="0">
+                        <img src="images/stmarg_page_1.png?crc=92937313" class="d-block w-100" alt="..." data-remote="https://source.unsplash.com/Pn6iimgM-wo/" data-type="image" data-toggle="lightbox" data-gallery="example-gallery">
+                     </div>
+                     <div class="carousel-item" data-slide-number="1">
+                        <img src="images/stmargbranding.jpg?crc=324642290" class="d-block w-100" alt="..." data-remote="https://source.unsplash.com/tXqVe7oO-go/" data-type="image" data-toggle="lightbox" data-gallery="example-gallery">
+                     </div>
+                  </div>
+               </div>
+               <!-- Carousel Navigation -->
+               <div id="carousel-thumbs" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                     <div class="carousel-item active">
+                        <div class="row mx-0">
+                        </div>
+                     </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carousel-thumbs" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carousel-thumbs" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                  </a>
+               </div>
+            </div>
+            <!-- /row -->
+         </div>
+         <!-- /container -->
+      </div>
+      <div class="col-md-4 p-2 mt-5">
+         <h4 style="text-align: center; color: #369ee7;">
+            Logo Exercises
+         </h4>
+         <hr>
+         <p>
+            Some examples of branding exercises from the New Media Communications program.
+            St. Marguerite Bourgeoys School was seeking a new logo, mascot and newsletter format.
+         </p>
+         <i style="font-size: xx-large; color: #369ee7;" class="fa fa-calendar"> Date: <span style="color: black;">Winter 2017</span></i>
+         <i style="font-size: xx-large; color: #369ee7;" class="pt-4 fa fa-user" aria-hidden="true"> Client: <span style="color: black;">St. Marguerite Bourgeoys School, Regina</span></i>
+         <div class="mt-3 expand-collapse">
+            <h3>The Target</h3>
+            <div>
+               <div id="drop">
+                  <p>
+                     The school was looking for a logo which fit with the existing school colours (blue and yellow) and which reflected the school's rich history.
+                     I incorporated the Regina Catholic School Board logo with a stylized shield, a book for learning and a modern font.
+                  </p>
+               </div>
+            </div>
+            <h3>Our Task</h3>
+            <div id="drop">
+                <p>
+               The task in this instance was to research the school's provenance, its current colour palette, and come up with a consistent, attractive and modern branding scheme.
+               Letterhead, envelope, business cards and a school newsletter template were all part of the project.
+            </p>
+            </div>
+            <h3>The Skills</h3>
+            <div id="drop">
+                <p>
+               This project required skills in graphic design, a knowledge of iconography, research techniques, and proficiency with the Adobe suite of products, including Photoshop CC and InDesign.
+            </p>
+            </div>
+            <h3>The Result</h3>
+            <div id="drop">
+                <p>
+                    While the school ultimately decided to go in a different direction, I believe this logo suite is a good representation of its heritage and its mission.
+            </p>
+            </div>
+         </div>
+      </div>
+      </div>
+      <div class="row pl-4" style="width: 100vw; margin-top: 5rem;">
+        <div class="col-md-7">
+           <div class="container mt-5">
+              <div class="carousel-container position-relative row">
+                 <!-- Sorry! Lightbox doesn't work - yet. -->
+                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                       <div class="carousel-item active" data-slide-number="0">
+                          <img src="images/chambergeeklogo.jpg?crc=396474474" class="d-block w-100" alt="..." data-remote="https://source.unsplash.com/Pn6iimgM-wo/" data-type="image" data-toggle="lightbox" data-gallery="example-gallery">
+                       </div>
+                       
+                    </div>
+                 </div>
+                 <!-- Carousel Navigation -->
+                 <div id="carousel-thumbs" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                       <div class="carousel-item active">
+                          <div class="row mx-0">
+                          </div>
+                       </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel-thumbs" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-thumbs" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                    </a>
+                 </div>
+              </div>
+              <!-- /row -->
+           </div>
+           <!-- /container -->
+        </div>
+
+        <div class="col-md-4 p-2 mt-5">
+            <h4 style="text-align: center; color: #369ee7;">
+             ChamberGeek
+            </h4>
+            <hr>
+            <p>
+             This smaller project involved developing a brand, website and presentation for the 2016 Saskatchewan Chamber of Commerce Conference on Business.
+             The website may be seen on the Web Projects page, or at http://www.chambergeek.net  
+             </p>
+            <i style="font-size: xx-large; color: #369ee7;" class="fa fa-calendar"> Date: <span style="color: black;">May 2016</span></i>
+            <i style="font-size: xx-large; color: #369ee7;" class="pt-4 fa fa-user" aria-hidden="true"> Client: <span style="color: black;">Saskatchewan Chamber of Commerce</span></i>
+            <div class="mt-3 expand-collapse">
+               <h3>The Target</h3>
+               <div>
+                  <div id="drop">
+                     <p>
+                         The Chambergeek logo was designed to be a "fun" project, to accompany a website for a presentation to managers of local Saskatchewan Chambers of Commerce.
+
+
+
+                         The logo was meant to reflect my own interest in IT and computer tools available to nonprofit organizations, as well as to celebrate "women geeks".
+                     </p>
+                  </div>
+               </div>
+               <h3>Our Task</h3>
+               <div id="drop">
+                   <p>
+                     The task was to compile a list of tools for chamber executives and other nonprofit workers.
+
+
+
+                     The logo is a caricature representation of a brunette "geek" with a stylized typeface.
+               </p>
+               </div>
+               <h3>The Skills</h3>
+               <div id="drop">
+                   <p>
+                     This project utilized my skills in Adobe Photoshop and website CMS. I found a stylized font to enhance the logo.
+               </p>
+               </div>
+               <h3>The Result</h3>
+               <div id="drop">
+                   <p>
+                     The result was a successful presentation at the Conference, and a lasting collection of valuable tools for nonprofits in the province.
+               </p>
+               </div>
+            </div>
+         </div>
+        </div>
+        <div class="row pl-4" style="width: 100vw; margin-top:  5rem;">
+            <div class="col-md-7">
+               <div class="container mt-5">
+                  <div class="carousel-container position-relative row">
+                     <!-- Sorry! Lightbox doesn't work - yet. -->
+                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                           <div class="carousel-item active" data-slide-number="0">
+                              <img src="images/grph100_2_logotypes_page_3.jpg?crc=389411389" class="d-block w-100" alt="..." data-remote="https://source.unsplash.com/Pn6iimgM-wo/" data-type="image" data-toggle="lightbox" data-gallery="example-gallery">
+                           </div>
+                           <div class="carousel-item" data-slide-number="1">
+                              <img src="images/grph100_lo3_page_3.jpg?crc=4012377342" class="d-block w-100" alt="..." data-remote="https://source.unsplash.com/tXqVe7oO-go/" data-type="image" data-toggle="lightbox" data-gallery="example-gallery">
+                           </div>
+                           <div class="carousel-item" data-slide-number="2">
+                            <img src="images/grph100_2_logotypes_page_1.jpg?crc=4055073517" class="d-block w-100" alt="..." data-remote="https://source.unsplash.com/tXqVe7oO-go/" data-type="image" data-toggle="lightbox" data-gallery="example-gallery">
+                         </div>
+                         <div class="carousel-item" data-slide-number="3">
+                            <img src="images/grph100_2_logotypes_page_2.jpg?crc=3832034553" class="d-block w-100" alt="..." data-remote="https://source.unsplash.com/tXqVe7oO-go/" data-type="image" data-toggle="lightbox" data-gallery="example-gallery">
+                         </div>
+
+                        </div>
+                     </div>
+                     <!-- Carousel Navigation -->
+                     <div id="carousel-thumbs" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                           <div class="carousel-item active">
+                              <div class="row mx-0">
+                              </div>
+                           </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carousel-thumbs" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel-thumbs" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                        </a>
+                     </div>
+                  </div>
+                  <!-- /row -->
+               </div>
+               <!-- /container -->
+            </div>
+            <div class="col-md-4 p-2 mt-5">
+                <h4 style="text-align: center; color: #369ee7;">
+                 Branding Prototypes
+                </h4>
+                <hr>
+                <p>
+                 These are a few of the branding prototypes I developed as part of the New Media Communications Certificate program at Saskatchewan Polytechnic.
+                </p>
+                <i style="font-size: xx-large; color: #369ee7;" class="fa fa-calendar"> Date: <span style="color: black;">Winter 2017</span></i>
+                <i style="font-size: xx-large; color: #369ee7;" class="pt-4 fa fa-user" aria-hidden="true"> Client: <span style="color: black;">School Project</span></i>
+                <div class="mt-3 expand-collapse">
+                   <h3>The Target</h3>
+                   <div>
+                      <div id="drop">
+                         <p>
+                             The target of these exercises was to use line, colour and imagery to create logos for several fictional businesses, including::
+                             <ul>
+                         <li>Chico's Mexican Restaurant</li>
+                         <li>Serenity Spa House</li>
+                         <li>A television comedy called Happy Home</li>
+                     </ul>
+                         As well as a personal brand logo
+                         </p>
+                      </div>
+                   </div>
+                   <h3>Our Task</h3>
+                   <div id="drop">
+                       <p>
+                         The task was to use colour, line, font, imagery and use of space to effectively convey the message of the brand of each entity.
+                   </p>
+                   </div>
+                   <h3>The Skills</h3>
+                   <div id="drop">
+                       <p>
+                         I used Adobe Photoshop CC to create these logos. As well, a background in graphic design and a knowledge of colour and typography were employed.
+                   </p>
+                   </div>
+                   <h3>The Result</h3>
+                   <div id="drop">
+                       <p>
+                         The result (as you can see on the left) is a variety of logos for a variety of purposes.
+                   </p>
+                   </div>
+                </div>
+             </div>
+            </div>
+            <div class="row pl-4" style="width: 100vw; margin-top:  5rem;">
+                <div class="col-md-7">
+                   <div class="container mt-5">
+                      <div class="carousel-container position-relative row">
+                         <!-- Sorry! Lightbox doesn't work - yet. -->
+                         <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                               <div class="carousel-item active" data-slide-number="0">
+                                  <img src="images/cesbranding.jpg?crc=361481161" class="d-block w-100" alt="..." data-remote="https://source.unsplash.com/Pn6iimgM-wo/" data-type="image" data-toggle="lightbox" data-gallery="example-gallery">
+                               </div>
+                               <div class="carousel-item " data-slide-number="1">
+                                <img src="images/ceslogo.jpg?crc=3930904799" class="d-block w-100" alt="..." data-remote="https://source.unsplash.com/Pn6iimgM-wo/" data-type="image" data-toggle="lightbox" data-gallery="example-gallery">
+                             </div>
+                             <div class="carousel-item " data-slide-number="2">
+                                <img src="images/ltrhd.jpg?crc=3914933982" class="d-block w-100" alt="..." data-remote="https://source.unsplash.com/Pn6iimgM-wo/" data-type="image" data-toggle="lightbox" data-gallery="example-gallery">
+                             </div>
+                               
+                            </div>
+                         </div>
+                         <!-- Carousel Navigation -->
+                         
+                      </div>
+                      <!-- /row -->
+                   </div>
+                   <!-- /container -->
+                </div>
+                <div class="col-md-4 p-2 mt-5">
+                   <h4 style="text-align: center; color: #369ee7;">
+                    Carson Energy Services Rebranding
+                   </h4>
+                   <hr>
+                   <p>
+                    While dated now, this project displays the range and depth of my branding services.
+
+                    Prior to being bought by Flint and URS, Carson Energy Services was the largest privately held energy services company in southeast Saskatchewan.
+                    
+                    I was pleased to perform a complete corporate rebranding for the company.
+                   </p>
+                   <i style="font-size: xx-large; color: #369ee7;" class="fa fa-calendar"> Date: <span style="color: black;">September 2011</span></i>
+                   <i style="font-size: xx-large; color: #369ee7;" class="pt-4 fa fa-user" aria-hidden="true"> Client: <span style="color: black;">Carson Energy Services Ltd.</span></i>
+                   <div class="mt-3 expand-collapse">
+                      <h3>The Target</h3>
+                      <div>
+                         <div id="drop">
+                            <p>
+                                The client wanted to retain the "Carson" part of the logo, but wanted the remaining wording added. After an unsuccessful search for a suitable font, I edited an existing font for a unique look.
+                            The entire project took over a year. Components included designing the look for the website, photography, stationery and cards, presentation templates, and a full handout package.
+                            </p>
+                         </div>
+                      </div>
+                      <h3>Our Task</h3>
+                      <div id="drop">
+                          <p>
+                            Beginning with the logo and working up from there, every aspect of the 14-location business required rebranding. Management wanted to retain the legacy "Carson" part of the logo, which was created when the business had only two locations and a limited range of services. The logo had to do that, while reflecting the company's growth and diversity of services.
+
+ 
+
+                            Working with a web coder, I designed the website and marketing collaterals, as well as stationery, business cards, signage and presentation templates, and created a comprehensive corporate identity manual.
+                      </p>
+                      </div>
+                      <h3>The Skills</h3>
+                      <div id="drop">
+                          <p>
+                            During this project, I was able to employ my skill in design as well as expertise in:
+                            <ul>
+                            <li>Adobe Photoshop</li>
+                            <li>Adobe InDesign</li>
+                            <li>Microsoft PowerPoint</li>
+                            <li>Adobe Acrobat</li>
+                            <li>Font Forge</li>
+                            </ul>
+                            Knowledge of current trends in marketing, background in the oilfield services industry, and the basics of design and  typography.
+                      </p>
+                      </div>
+                      <h3>The Result</h3>
+                      <div id="drop">
+                          <p>
+                            The result was a complete overhaul of a dated logo to reflect the company's increased size and capacity.
+
+ 
+
+Within a short time, CES was on the market, and the collaterals were used as part of the sales pitch to Flint Energy Services. The company continued to use the logo (with an addition of "a Flint Company" until it was sold and merged with URS.
+                      </p>
+                      </div>
+                   </div>
+                </div>
+                </div>
+                <footer class="py-5" style="margin-top: 7em; background-color: black;"> 
+                    <div class="text-center " style="background-color: black;">
+                      <a href="https://componentity.com" target="_blank">
+                  </a>
+                  <h6 class="text-secondary">Food for Thought</h6>
+                      <p class="text-secondary col-md-9 mx-auto">"The art of communication is the language of leadership."
+                       - James C. Hume</p>
+                       <p class="text-secondary col-md-9 mx-auto">
+                          "To design is to communicate clearly by whatever means you can control or master."
+           - Milton Glaser
+                       </p>
+                      <hr class="my-5">
+                      <div class="mb-3">
+                       <div class="socialbtns">
+                          <ul>
+                             <li><a href="https://www.facebook.com/rithik.sachdev"><i id="face"
+                                style="font-size: xx-large;" class="fa fa-facebook"></i></a>
+                             </li>
+                             <li><a href="https://twitter.com/SKPrairieGrrl"><i id="face"
+                                style="font-size: xx-large;" class="fa fa-lg fa-twitter"></i></a></li>
+                             <li><a href="rithiksachdev3@gmail.com"><i id="face" style="font-size: xx-large;"
+                                class="fa fa-lg fa-google-plus"></i></a></li>
+                             <li><a href="https://www.linkedin.com/in/dawn-m-barker-capm-953495128/"><i id="face"
+                                style="font-size: xx-large;" class="fa fa-lg fa-linkedin"></i></a></li>
+                          </ul>
+                       </div>
+                        </div>
+                      <p class="text-secondary">Copyright 2020. All rights reserved!</p>
+                    </div>
+                  </footer>
+      <script>
+         $(document).ready(function() {
+         $('.expand-collapse h3').each(function() {
+         var tis = $(this), state = false, answer = tis.next('div').slideUp();
+         tis.click(function() {
+         state = !state;
+         answer.slideToggle(state);
+         tis.toggleClass('active',state);
+         });
+         });
+         });
+      </script>
+   </body>
+</html>

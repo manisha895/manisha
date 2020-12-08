@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="css/home.css">
+      <title>Document</title>
+      
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <script type="text/javascript" src="scripts/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <body>
+      <script>
+         $(document).ready(function() {
+	$('.expand-collapse h3').each(function() {
+		var tis = $(this), state = false, answer = tis.next('div').slideUp();
+		tis.click(function() {
+			state = !state;
+			answer.slideToggle(state);
+			tis.toggleClass('active',state);
+		});
+	});
+});
+      </script>
+      
+      <link rel="stylesheet"  href="css/home.css">
+      <link rel="stylesheet"  href="css/main.css">
+      <nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+         <div class="container">
+         <a class="navbar-brand" href="/">Dawn M. Barker</a>
+         <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+         <span><i class="fa fa-bars"></i></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbar">
+         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+               <a class="nav-link" href="index.html" data-target="#about">
+               <span>Home</span>
+               </a>
+            </li>
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="professional.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Professional
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="branding.html">Branding</a>
+                  <a class="dropdown-item" href="graphicdesign.html">Graphic Design</a>
+                  <a class="dropdown-item" href="animation.html">Animation</a>
+                  <a class="dropdown-item" href="writing.html">Writing</a>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="personal.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Personal
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="photography.html">Photography</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="about.html" >
+            <span>About</span>
+            </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="contact.html">
+            <span>Contact</span>
+            </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="interactivedigitalportfolio.pdf" data-target="interactivedigitalportfolio.pdf">
+            <span>Resume</span>
+            </a>
+            </li>
+         </ul>
+         </div>
+         </div>
+      </nav>
+      
+    <div class="overlay-container">
+      <div id="left-slider" style="background-color: black;"><img src="images/firel.jpg" id="left-opening-image" alt="Phoenix"/></div>
+      <div id="right-slider" style="background-color: black;"><img src="images/firer.jpg" id="right-opening-image" alt="Info"/></div>
+  </div>
+      <div id="top" style="text-align: center;">
+         <h2>Areas of <span style="color:#369ee7;">Expertise</span></h2>
+         <h4>How can I help you succeed?</h4>
+      </div>
+      <section id="team" style="margin-top: 3rem;">
+         <div class="container my-3 py-5 text-center">
+            <div class="row">
+               <div class="col-lg-4 col-md-6" style="padding: 1em;">
+                  <div class="card" id="e1">
+                     <div class="card-body">
+                        <img src="images/writing.jpg?crc=4061851453" alt="a man with cape" 
+                           style="height: 60px; width: 60px; margin-bottom: 3em; ">
+                        <h2 id="txt">Copywriting, Editing, PR</h2>
+                        <p class="pt-3" id="text-card">The English language has been a lifelong passion of mine. I love to read, write and edit. Whether it's copywriting, technical writing, policy writing, journalistic or creative, the written word has driven my career path for over two decades.</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6" style="padding: 1em;">
+                  <div class="card" id="e2">
+                     <div class="card-body">
+                        <img src="images/layout.jpg?crc=4158120803" alt="bar graphs on a palm"  
+                           style="height: 60px; width: 60px; margin-bottom: 3em; ">
+                        <h2 id="txt">Design & Graphic Layout</h2>
+                        <p class="pt-3" id="text-card">As an expert user of the Adobe suite of programs, I love to make things look great -- from newspapers to magazines to e-magazines; from marketing collaterals to fully branded corporate packages. Whether in hard copy or digital format, each project represents a unique challenge.</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6" style="padding: 1em;">
+                  <div class="card" id="e3">
+                     <div class="card-body">
+                        <img src="images/www.jpg?crc=4248040806" alt="a fist" 
+                           style="height: 60px; width: 60px; margin-bottom: 3em; ">
+                        <h2 id="txt">Web Design & Social</h2>
+                        <p class="pt-3" id="text-card">I am familiar with a range of CMS platforms, Adobe Dreamweaver and even basic hand-coded HTML5 websites. Recently, I've added some Javascript to my skills, as well as the Adobe Muse web development tool.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row mt-2">
+               <div class="col-lg-4 col-md-6" style="padding: 1em;">
+                  <div class="card" id="e1">
+                     <div class="card-body">
+                        <img src="images/marketing-branding.png?crc=3810434973" alt="a man with cape" 
+                           style="height: 60px; width: 60px; margin-bottom: 3em; ">
+                        <h2 id="txt">Branding</h2>
+                        <p class="pt-3" id="text-card">You are only as good as your brand. I love logos. I love fonts. I love brands. I've had the opportunity to help a few companies establish their brands using creativity, skills and organization. I'd love to talk to you about yours!</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6" style="padding: 1em;">
+                  <div class="card" id="e2">
+                     <div class="card-body">
+                        <img src="images/pm.jpg?crc=4291914951" alt="bar graphs on a palm"  
+                           style="height: 60px; width: 60px; margin-bottom: 3em; ">
+                        <h2 id="txt">Project Management & Events</h2>
+                        <p class="pt-3" id="text-card">As a Certified Associate in Project Management, I've learned to take the reins and ensure that projects under my portfolio are done properly, on schedule and according to specifications. I've also helped coordinate events from 25-800 people.</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6" style="padding: 1em;">
+                  <div class="card" id="e3">
+                     <div class="card-body">
+                        <img src="images/photog.png?crc=114238289" alt="a fist" 
+                           style="height: 60px; width: 60px; margin-bottom: 3em; ">
+                        <h2 id="txt">Photography. Video & Audio</h2>
+                        <p class="pt-3" id="text-card">Need a photo shoot? A video message? A podcast produced? Perhaps a Flash animation, or an interactive PowerPoint presentation or educational module?
+                           Call me!
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <h4 style="text-align: center; color: #369ee7;">A little About me ...</h4>
+      <div class="mt-3 expand-collapse">
+         <h3>Employment</h3>
+         <div>
+            <div id="drop">
+               <i>Saskatchewan Chamber of Commerce, Regina</i>
+               <ul>
+                  <li>
+                     Director of Communications, 2012-Present
+                  </li>
+               </ul>
+               <i>Saskatchewan Urban Municipalities Association, Regina</i>
+               <ul>
+                  <li>
+                     Communications Coordinator, 2010-2012
+                  </li>
+               </ul>
+               <i>PrairieVisions Design &amp; Communications, Arcola &amp; Regina</i>
+               <ul>
+                  <li>
+                     President/Designer &amp; Communications, 2005-2010
+                  </li>
+               </ul>
+               <i>Carlyle Observer, Carlyle, SK</i>
+               <ul>
+                  <li>
+                     Editor, 1999-2005
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <h3>Education</h3>
+         <div id="drop">
+            <i>Saskatchewan Polytechnic</i>
+            <ul >
+               <li>New Media Communications Certificate</li>
+            </ul>
+            <i>The PM Connection</i>
+            <ul>
+               <li>CAPM Prep Course</li>
+            </ul>
+            <i>PMI International</i>
+            <ul>
+               <li>CAPM Designation</li>
+            </ul>
+            <i>MicroAge, Regina</i>
+            <ul>
+               <li>Illustrator CS6 Level 2</li>
+               <li>Photoshop CS6 Level 2</li>
+               <li>Indesign CC Level 2</li>
+               <li>Acrobat XI Pro Level 2</li>
+               <li>MS Project Pro 2013</li>
+               <li>Excel 2013 Level 2</li>
+               <li>Word 2013 Level 2</li>
+            </ul>
+            <i>Tourism Saskatchewan</i>
+            <ul>
+               <li>Service Best Certificate</li>
+            </ul>
+         </div>
+         <h3>Skill Set</h3>
+         <div id="drop">
+            <p><span>Advanced</span> user of the <span>Adobe CC</span> suite of applications:</p>
+            <div class="row">
+               <div class="col">
+                  <ul>
+                     <li>InDesign</li>
+                     <li>Illustrator</li>
+                     <li>Photoshop</li>
+                     <li>Muse</li>
+                     <li>Dreamweaver</li>
+                  </ul>
+               </div>
+               <div class="col">
+                  <ul class="list0 nls-None" id="u12998-11">
+                     <li id="u12998-2">Acrobat</li>
+                     <li id="u12998-4">Audition</li>
+                     <li id="u12998-6">Premier Pro</li>
+                     <li id="u12998-8">Animate</li>
+                     <li id="u12998-10">AfterEffects</li>
+                  </ul>
+               </div>
+            </div>
+            <p><span >Skilled</span> with the <span>Microsoft Office</span> suite:</p>
+            <div class="row">
+               <div class="col">
+            <ul class="list0 nls-None">
+               <li>Word</li>
+               <li>Excel</li>
+               <li>Access</li>
+            </ul>
+            </div>
+            <div class="col">
+               <ul>
+               <li id="u13004-2">PowerPoint</li>
+               <li id="u13004-4">Visio</li>
+            </ul>
+         </div>
+         </div>
+         <p><span >Experienced with specialized software and applications:</p>
+            <div class="row">
+               <div class="col">
+            <ul class="list0 nls-None">
+               <li>GoToAnimate</li>
+                           <li>Constant Contact</li>
+                           <li>Hootsuite</li>
+            </ul>
+            </div>
+            <div class="col">
+               <ul>
+                  <li id="u13007-2">Corel Video Studio</li>
+                           <li id="u13007-4">Microsoft Project Pro</li>
+                           <li id="u13007-6">WordPress and other CMS</li>
+            </ul>
+         </div>
+         </div>
+         <p><span >Skilled</span> with the <span>Microsoft Office</span> suite:</p>
+            <div class="row">
+               <div class="col">
+            <ul class="list0 nls-None">
+               <li>Captivate</li>
+                           <li>AfterEffects</li>
+                           <li>GoToMeeting</li>
+            </ul>
+            </div>
+            <div class="col">
+               <ul>
+                  <li>ChamberMaster</li>
+                  <li>CeltX</li>
+                  <li>GoToWebinar</li>
+            </ul>
+         </div>
+         </div>
+      </div>
+      <h4 class="mt-5" style="text-align: center; color: #369ee7;">Where do you want to go</h4>
+      <div class="row" style="padding-bottom: 5rem;">
+         <div id="professionalportfolio" class="col-md-6 col-xs-12">
+            <a href="professional.html"><img class="smimg" src="images/luckypaws.jpg"></a>
+            <h6 style="text-align: center;">
+               PROFESSIONAL PORTFOLIO
+            </h6>
+            <p style="font-size: small;">
+               Branding work, from developing the logo through to creating a full-scale branding rollout and corporate identity guide
+            </p>
+            <a href="professional.html" class="btn btn-dark">More</a>
+         </div>
+         <div id="artportfolio" class="col-md-6 col-xs-12 mt-xs-5">
+            <a href="personal.html"><img class="smimg" src="images/10.jpg"></a>
+            <h6 style="text-align: center;">
+               PERSONAL ARTWORK PORTFOLIO
+            </h6>
+            <p style="font-size: small;">
+            A selection of photography projects I've undertaken -- from family photos and weddings to landscape, travel and corporate photography
+            </p>
+            <a href="photography.html" class="btn btn-dark">More</a>
+         </div>
+
+      </div>
+      <footer class="py-5" style="margin-top: 7em; background-color: black;"> 
+         <div class="text-center " style="background-color: black;">
+           <a href="https://componentity.com" target="_blank">
+       </a>
+       <h6 class="text-secondary">Food for Thought</h6>
+           <p class="text-secondary col-md-9 mx-auto">"The art of communication is the language of leadership."
+            - James C. Hume</p>
+            <p class="text-secondary col-md-9 mx-auto">
+               "To design is to communicate clearly by whatever means you can control or master."
+- Milton Glaser
+            </p>
+           <hr class="my-5">
+           <div class="mb-3">
+            <div class="socialbtns">
+               <ul>
+                  <li><a href="https://www.facebook.com/rithik.sachdev"><i id="face"
+                     style="font-size: xx-large;" class="fa fa-facebook"></i></a>
+                  </li>
+                  <li><a href="https://twitter.com/SKPrairieGrrl"><i id="face"
+                     style="font-size: xx-large;" class="fa fa-lg fa-twitter"></i></a></li>
+                  <li><a href="rithiksachdev3@gmail.com"><i id="face" style="font-size: xx-large;"
+                     class="fa fa-lg fa-google-plus"></i></a></li>
+                  <li><a href="https://www.linkedin.com/in/dawn-m-barker-capm-953495128/"><i id="face"
+                     style="font-size: xx-large;" class="fa fa-lg fa-linkedin"></i></a></li>
+               </ul>
+            </div>
+             </div>
+           <p class="text-secondary">Copyright 2020. All rights reserved!</p>
+         </div>
+       </footer>
+      
+      <script type="text/javascript">
+
+         leftOpeningSlider = document.querySelector("div#left-slider");
+         rightOpeningSlider = document.querySelector("div#right-slider");
+ 
+         document.onscroll = (event) => {
+ 
+             scrollRate = Math.ceil(-2 * 100 * window.scrollY/document.body.scrollHeight) + "%";     // Rate of sliding (relative, as uses % value)
+ 
+             leftOpeningSlider.style.left = scrollRate;        // For absolute sliding position, you may add or subtract the rate accordingly, as per the case of sliding up or down 
+             rightOpeningSlider.style.right = scrollRate; 
+ 
+         }
+ 
+     </script>
+   </body>
+</html>

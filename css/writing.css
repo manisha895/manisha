@@ -1,0 +1,11 @@
+button.owl-prev>span{
+    color: black;
+    left: 5.5rem;
+    position: absolute;
+}
+button.owl-next>span{
+    color: black;
+    right: 5.5rem;
+    
+    position: absolute;
+}
