@@ -6,3 +6,12 @@ html, body {
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
     width: 100%;
     }
+    .mb{
+        margin-top: 2rem;
+    }
+    @media screen and (max-width: 840px) {
+        .mb{
+            margin-top: 0;
+            margin-bottom: 10rem !important;
+        }
+    }
